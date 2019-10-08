@@ -1,4 +1,6 @@
 #!/bin/bash
 
+# print out just the index of the current default sink
+
 pacmd list-sinks | grep -F '* index: ' \
 	| grep -o -E '[[:digit:]]+'

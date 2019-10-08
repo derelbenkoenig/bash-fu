@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# print out just the volume level of the current sink
+
 CURRENT_SINK=$(current-sink)
 
 pacmd list-sinks | grep -F -A 10 '* index: ' \
