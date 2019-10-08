@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# print out just the volume level of the current sink
+
+CURRENT_SINK=$(current-sink)
+
+pacmd list-sinks | grep -F -A 10 '* index: ' \
+	| grep -F 'volume: front-left:' \
+	| sed -E 's/^.*front-left:[[:space:]]+([[:digit:]]+).*/\1/'

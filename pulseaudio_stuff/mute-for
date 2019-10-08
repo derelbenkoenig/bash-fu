@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# mute, then wait a number of seconds, then set the volume to what it was before you muted
+# recommended to background this command in your shell with &
+
+PREV_VOL=$(get-volume)
+mute
+sleep ${1}
+set-volume ${PREV_VOL}

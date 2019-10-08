@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# find the current sink, and set the volume of that sink to the specified level
+
+pacmd set-sink-volume $(current-sink) $1

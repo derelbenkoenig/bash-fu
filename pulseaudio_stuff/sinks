@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# output of `pacmd list-sinks`, but filtered out to the most relevant info
+
+pacmd list-sinks | grep -A 10 --color=always 'index: '
