@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pacmd list-sinks | grep -F '* index: ' \
+	| grep -o -E '[[:digit:]]+'

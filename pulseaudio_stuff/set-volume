@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pacmd set-sink-volume $(current-sink) $1
