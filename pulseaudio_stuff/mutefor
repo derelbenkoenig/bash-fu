@@ -4,6 +4,13 @@
 # recommended to background this command in your shell with &
 
 PREV_VOL=$(get-volume)
+
+if [[ "${PREV_VOL}" = "0" ]]
+then
+	echo >&2 "volume is already zero, not muting"
+	exit 1
+fi
+
 mute
 sleep ${1}
 set-volume ${PREV_VOL}
