@@ -9,6 +9,10 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_completion ]; then
+	. ~/.bash_completion
+fi
+
 # User specific environment
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
