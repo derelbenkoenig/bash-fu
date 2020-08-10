@@ -85,3 +85,12 @@ function stopKafka {
 	kill %1
 	wait %1
 }
+
+function trd {
+	local arg
+	case "$1" in
+		"" | eol ) arg='\r\n' ;;
+		* ) arg="$1" ;;
+	esac
+	tr -d "$arg"
+}

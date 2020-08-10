@@ -1,0 +1,8 @@
+function _getpass() {
+	local WORD=$2
+	local IFS="
+"
+	WORD=$(echo ${WORD} | tr "[:upper:]" "[:lower:]")
+	COMPREPLY=( $(compgen -W "$(bw list items | jq '.[].name | ascii_downcase')" "$WORD" ) )
+}
+complete -F _getpass clipPass
