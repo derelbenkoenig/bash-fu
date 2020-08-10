@@ -5,17 +5,13 @@ alias clip='xclip -sel clip'
 
 # take screenshot, save to predictable path
 function snip {
-	scrot $@ '/home/rbenson/Pictures/Screenshot-%Y-%m-%d-%H-%M-%S.png'
+	scrot $@ "/home/$(whoami)/Pictures/Screenshot-%Y-%m-%d-%H-%M-%S.png"
 }
 
 # open IDE from terminal, but detach from terminal (inherit env vars from shell... I think)
 alias idea='nohup idea >/dev/null & disown %%'
 alias clion='nohup clion >/dev/null & disown %%'
 alias pycharm='nohup pycharm >/dev/null & disown %%'
-
-# also, browsers
-alias firefox='nohup firefox &>/dev/null & disown %%'
-alias google-chrome='nohup google-chrome &>/dev/null & disown %%'
 
 alias off='shutdown now'
 
@@ -56,7 +52,7 @@ function loadBwSession {
 function bwLogin {
 	touch ~/.bwsession
 	chmod 600 ~/.bwsession
-	# not sure if this umask is actually useful
+	# not sure if this umask is actually useful, the touch+chmod probably takes care of it
 	( umask 177 ; bw login --raw > ~/.bwsession \
 		&& export BW_SESSION=$(cat ~/.bwsession) )
 }
