@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# get password from bitwarden CLI, pipe it straight to clipboard
+
 PASSWD=$(bw get password "$1")
 
 if [ 0 = "$?" ] ; then
