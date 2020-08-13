@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read -p "yes or no?" YESNO
+
+[[ "$YESNO" == [Yy]* ]]

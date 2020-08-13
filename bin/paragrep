@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# like grep, but print out "paragraph" containing the pattern
+# paragraphs are considered to be delimited by empty lines
+# if a line with only whitespace should be the delimiter change that first pattern to:
+#	/^[:space:]*$/ b para
+
+sed -E -n "
+/^$/ b para
+H
+$ b para
+b
+:para
+x
+/$1/ p
+"

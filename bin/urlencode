@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import sys
+import urllib.parse
+
+def chomp(x):
+    if x.endswith("\r\n"): return x[:-2]
+    if x.endswith("\n") or x.endswith("\r"): return x[:-1]
+    return x
+
+for line in sys.stdin:
+    encoded_res = urllib.parse.quote_plus(chomp(line))
+    print(encoded_res)
+
