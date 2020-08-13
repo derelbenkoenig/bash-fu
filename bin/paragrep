@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sed -E -n "
+/^$/ b para
+H
+$ b para
+b
+:para
+x
+/$1/ p
+"

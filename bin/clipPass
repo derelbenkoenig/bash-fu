@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PASSWD=$(bw get password "$1")
+
+if [ 0 = "$?" ] ; then
+	echo -n "$PASSWD" | xclip -sel clip 
+else 
+	echo >&2 "FAILED"
+	exit 1
+fi
