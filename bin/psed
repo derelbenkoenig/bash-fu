@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# sort of like grep, but always print out the first 2 lines of the input
+# useful to pipe things like ps or netstat into this
+
 if [ "$#" != "1" ]
 then
 	echo >&2 "Unexpected number of args"
