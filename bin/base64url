@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ARGS=${@[*]}
-
 if [[ "$1" == '-d' ]]; then
 	tr '-_' '+/' | base64 -d
 else
