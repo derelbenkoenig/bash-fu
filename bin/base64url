@@ -2,7 +2,7 @@
 
 ARGS=${@[*]}
 
-if [[ "$1" == '-d' ]] then
+if [[ "$1" == '-d' ]]; then
 	tr '-_' '+/' | base64 -d
 else
 	base64 | tr '+/' '-_'
