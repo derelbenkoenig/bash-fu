@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$1" == '-d' ]]; then
-	tr '-_' '+/' | base64 -d
+	tr '\-_' '+/' | base64 -d
 else
 	base64 | tr '+/' '-_'
 fi
