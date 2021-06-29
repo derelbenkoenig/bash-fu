@@ -52,9 +52,8 @@ function loadBwSession {
 function bwLogin {
 	touch ~/.bwsession
 	chmod 600 ~/.bwsession
-	# not sure if this umask is actually useful, the touch+chmod probably takes care of it
-	( umask 177 ; bw login --raw > ~/.bwsession \
-		&& export BW_SESSION=$(cat ~/.bwsession) )
+	bw login --raw > ~/.bwsession \
+		&& export BW_SESSION="$(cat ~/.bwsession)"
 }
 
 function bwLogout {

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+find . '(' -name venv -o -name target -o -name .git ')' -prune -o -exec basename '{}' \; | sed -n -E '/\./ {
+s/^[^.]*\.//
+p
+}' | sort -u
