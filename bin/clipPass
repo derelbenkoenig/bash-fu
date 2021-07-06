@@ -2,7 +2,7 @@
 
 # get password from bitwarden CLI, pipe it straight to clipboard
 
-PASSWD=$(bw get password "$(bw list items | jq -r ".[] | select(.name == \"$1\") | .id")")
+PASSWD=$(bw get password "$(bw list items | jq -r ".[] | select((.name |ascii_downcase ) == (\"$1\" | ascii_downcase)) | .id")")
 
 if [ 0 = "$?" ] ; then
 	echo -n "$PASSWD" | xclip -sel clip 
