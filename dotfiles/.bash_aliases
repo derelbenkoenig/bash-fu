@@ -61,6 +61,10 @@ function bwLogout {
 	bw logout
 }
 
+function bwList {
+	bw list items | jq -r '.[].name'
+}
+
 # print millisecond timestamp... sometimes acts funny within command substitution
 function millis {
 	echo "$(($(date $@ +%s%N) / 1000000))"
@@ -88,4 +92,15 @@ function trd {
 		* ) arg="$1" ;;
 	esac
 	tr -d "$arg"
+}
+
+function in-all-panes {
+	local WINDOW
+	local PANE
+	for WINDOW in $(tmux list-windows -F '#I'); do
+		for PANE in $(tmux list-panes -t ${WINDOW} -F '#D'); do
+			tmux send-keys -l -t $PANE "$@"
+			tmux send-keys -t $PANE Enter
+		done
+	done
 }
