@@ -29,9 +29,9 @@ font pango:monospace 8
 # use xss-lock to lock screen
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i /home/rbenson/Pictures/Bisexual_Pride_Flag.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -i /home/derelbenkoenig/Pictures/Bisexual_Pride_Flag.png
 # and do it on mod+shift+s (not L because L is used for vim-like movement keys)
-bindsym $mod+Shift+s exec i3lock -n -i /home/rbenson/Pictures/Bisexual_Pride_Flag.png
+bindsym $mod+Shift+s exec i3lock -n -i /home/derelbenkoenig/Pictures/Bisexual_Pride_Flag.png
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -201,4 +201,4 @@ bar {
 }
 
 # start dunst
-exec --no-startup-id dunst -conf /home/rbenson/.config/dunst/dunstrc
+exec --no-startup-id dunst -conf /home/derelbenkoenig/.config/dunst/dunstrc
