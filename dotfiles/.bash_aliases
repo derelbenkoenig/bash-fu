@@ -1,7 +1,5 @@
 alias l='ls -AlF'
 
-# copy to clipboard
-alias clip='xclip -sel clip'
 
 # take screenshot, save to predictable path
 function snip {
@@ -18,12 +16,6 @@ alias off='shutdown now'
 # shorthand for rebuild java projects
 alias mbuild='mvn clean install -DskipTests -Dcobertura.skip -Dmaven.clover.skip -Dcheckstyle.skip'
 alias grebuild='./gradlew spotlessApply clean build'
-
-# generate and view coverage report for maven project with cobertura
-function covfefe {
-	mvn clean install cobertura:cobertura -Dcobertura.haltOnFailure=false && \
-		firefox target/site/cobertura/index.html
-}
 
 alias view='vim -R'
 
@@ -45,7 +37,7 @@ alias source-highlight='source-highlight -f esc256'
 # BitWarden functions
 function loadBwSession {
 	if [ -f ~/.bwsession ] ; then
-		export BW_SESSION=$(cat ~/.bwsession)
+		export BW_SESSION="$(cat ~/.bwsession)"
 	fi
 }
 
@@ -68,21 +60,6 @@ function bwList {
 # print millisecond timestamp... sometimes acts funny within command substitution
 function millis {
 	echo "$(($(date $@ +%s%N) / 1000000))"
-}
-
-# start zookeeper and kafka (you must kill kafka before killing zookeeper, and don't forget to
-# kill these before you try to shut down the machine, or else it will take a long time to shut down
-function startKafka {
-	$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties &
-	sleep 8;
-	$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties &
-}
-
-function stopKafka {
-	kill %2
-	wait %2
-	kill %1
-	wait %1
 }
 
 function trd {

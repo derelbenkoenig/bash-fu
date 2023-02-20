@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tee /dev/tty | xclip -sel clip
