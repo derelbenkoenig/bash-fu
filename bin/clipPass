@@ -2,4 +2,4 @@
 
 # get password from bitwarden CLI, pipe it straight to clipboard
 
-getPass "$1" | tr -d '\n' | xclip -sel clip
+getPass "$1" | tr -d '\n' | xclip -sel clip -sensitive
