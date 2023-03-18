@@ -22,6 +22,8 @@ let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
 
 set number
 
+set whichwrap-=h,l
+
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
 let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
