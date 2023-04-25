@@ -1,0 +1,31 @@
+[alias]
+	loggo = log --oneline --graph
+	logo1 = log --oneline --graph -n 1
+	co = checkout
+	b = branch
+	s = status
+	d = diff
+	dc = diff --cached
+	ds = diff --stat
+	cp = cherry-pick
+	dw = diff --word-diff --word-diff-regex='[[:alnum:]_]+|[^[:alnum:][:space:]_]'
+	cur-branch = rev-parse --abbrev-ref HEAD
+	cempty = commit --allow-empty
+	logno = log --pretty=format:\"%C(auto)* %d %s\"
+	dcw = dw --cached
+	sw = switch
+	f = fetch --tags --prune --all --force
+	rbc = rebase --continue
+[user]
+	email = derelbenkoenig@gmail.com
+	name = Robert Benson
+[merge]
+	tool = vimdiff
+[diff "ansible-vault"]
+	textconv = ansible-vault view
+[advice]
+	detachedHead = false
+[init]
+	defaultBranch = main
+[mergetool]
+	keepBackup = false
