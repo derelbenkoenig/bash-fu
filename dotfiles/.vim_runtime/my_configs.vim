@@ -10,9 +10,13 @@ let g:AutoPairsLoaded = 1
 unmap <leader>ss
 map <leader>ss :syntax sync fromstart<CR>
 
+unmap 0
 unmap <leader>co
 unmap <leader>cc
 map <leader>cc :CocCommand<CR>
+
+nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>tb :TagbarToggle<CR>
 
 " ALEDisable
 let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
@@ -20,8 +24,8 @@ let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
 " undecided whether I want this or not
 " set backspace=
 
+colorscheme slate
 set number
-
 set whichwrap-=h,l
 
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -35,3 +39,6 @@ set scrolloff=0
 
 command! -nargs=* -range CocAction :call CocActionAsync('codeActionRange', <line1>, <line2>, <f-args>)
 command! -nargs=* -range CocFix    :call CocActionAsync('codeActionRange', <line1>, <line2>, 'quickfix')
+
+" if I have something (e.g. ctags) installed with snap, it can't access /tmp
+let $TMPDIR=$HOME . '/tmp'
