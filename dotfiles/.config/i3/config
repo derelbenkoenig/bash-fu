@@ -55,6 +55,9 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+KP_Enter exec alacritty
 
+# start firefox
+bindsym $mod+Shift+f exec firefox
+
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
