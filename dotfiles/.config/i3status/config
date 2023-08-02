@@ -25,6 +25,7 @@ order += "tztime local"
 order += "tztime brasil"
 order += "tztime utc"
 order += "tztime chisinau"
+order += "tztime Kolkata"
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
@@ -47,27 +48,35 @@ battery all {
 }
 
 tztime local {
-        format = "<span foreground='#00ff80'>%a %d %b %Y %H:%M:%S Raleigh</span>"
+        format = "<span foreground='#009C56'>%a %d %b %Y %H:%M:%S Raleigh</span>"
         # format_time = 
         timezone = US/Eastern
 }
 
-# tztime brasil {
-#         format = "<span foreground='#0080ff'>%H:%M:%S Campinas</span>"
-#         timezone = America/Sao_Paulo
-# }
+# color from the Brasil flag
+tztime brasil {
+        format = "<span foreground='#002776'>%H:%M:%S São Paolo</span>"
+        timezone = America/Sao_Paulo
+}
 
+# color from the UK flag
 tztime utc {
-        format = "<span foreground='#ff4040'>%H:%M:%S UTC</span>"
+        format = "<span foreground='#C8102E'>%H:%M:%S UTC</span>"
         timezone = UTC
 }
 
 
+# color from the Moldova flag
 tztime chisinau {
-        format = "<span foreground='#00ffff'>%H:%M:%S Chisinau</span>"
+        format = "<span foreground='#0046AE'>%H:%M:%S Chisinau</span>"
         timezone = Europe/Chisinau
 }
 
+# color from the Indian flag
+tztime Kolkata {
+        format = "<span foreground='#F4C430'>%H:%M:%S Kolkata</span>"
+        timezone = Asia/Kolkata
+}
 
 disk "/" {
         format = "disk %avail avail"
