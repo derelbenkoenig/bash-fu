@@ -21,6 +21,7 @@ order += "wireless _first_"
 order += "ethernet _first_"
 order += "volume default"
 order += "battery all"
+order += "memory"
 order += "tztime local"
 order += "tztime brasil"
 order += "tztime utc"
@@ -88,4 +89,10 @@ cpu_usage {
 
 load {
 	format = "load %1min/%5min/%15min"
+}
+
+memory {
+   format = "%used used"
+   threshold_degraded = "10%"
+   format_degraded = "MEMORY: %free"
 }
