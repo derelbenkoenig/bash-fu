@@ -53,8 +53,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+KP_Enter exec alacritty
+bindsym $mod+Return exec alacritty -e tmux -2
+bindsym $mod+KP_Enter exec alacritty -e tmux -2
 
 # start firefox
 bindsym $mod+Shift+f exec firefox
