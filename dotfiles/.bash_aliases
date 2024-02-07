@@ -81,3 +81,7 @@ function in-all-panes {
 		done
 	done
 }
+
+function namew-dir {
+    tmux renamew ${PWD##*/}
+}
