@@ -42,3 +42,36 @@ command! -nargs=* -range CocFix    :call CocActionAsync('codeActionRange', <line
 
 " if I have something (e.g. ctags) installed with snap, it can't access /tmp
 let $TMPDIR=$HOME . '/tmp'
+
+let NERDTreeShowHidden=1
+
+" unmap the following:
+" vimrcs/extended.vim:83:vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+" vimrcs/extended.vim:84:vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+" vimrcs/extended.vim:85:vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+" vimrcs/extended.vim:86:vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+" vimrcs/extended.vim:87:vnoremap $q <esc>`>a'<esc>`<i'<esc>
+" vimrcs/extended.vim:88:vnoremap $e <esc>`>a`<esc>`<i`<esc>
+" vimrcs/extended.vim:91:inoremap $1 ()<esc>i
+" vimrcs/extended.vim:92:inoremap $2 []<esc>i
+" vimrcs/extended.vim:93:inoremap $3 {}<esc>i
+" vimrcs/extended.vim:94:inoremap $4 {<esc>o}<esc>O
+" vimrcs/extended.vim:95:inoremap $q ''<esc>i
+" vimrcs/extended.vim:96:inoremap $e ""<esc>i
+vunmap $1
+vunmap $2
+vunmap $3
+vunmap $$
+vunmap $q
+vunmap $e
+
+iunmap $1
+iunmap $2
+iunmap $3
+iunmap $4
+iunmap $q
+iunmap $e
+
+" open man pages with :Man
+runtime! ftplugin/man.vim
+
