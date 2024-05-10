@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -ex
+
+ITEM="$1"
+
+OLDITEM="$(bw get item ${ITEM})"
+
+if [[ "$2" ]]
+then
+    NEWPASS="$2"
+else
+    NEWPASS="$(bw generate -luns)"
+fi
+
+jq <<<"${OLDITEM}" ".login.password = \"${NEWPASS}\"" \
+    | base64 \
+    | bw edit item $(jq -r .id <<<"${OLDITEM}")
