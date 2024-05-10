@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# this file is based on a script I found on someone's blog
+# https://shkspr.mobi/blog/2016/12/converting-rar-to-zip-in-linux/
 echo "Converting RAR to ZIP"
 
 set -ex
