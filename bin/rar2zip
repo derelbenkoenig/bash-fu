@@ -1,8 +1,9 @@
 #!/bin/bash
-
+#
 # this file is based on a script I found on someone's blog
 # https://shkspr.mobi/blog/2016/12/converting-rar-to-zip-in-linux/
-echo "Converting RAR to ZIP"
+
+echo >&2 "Converting RAR to ZIP"
 
 set -ex
 
@@ -18,7 +19,7 @@ TEMPDIR=$(uuidgen -r)
 
 SOURCEDIR=$(dirname "$OLDFILE")
 
-echo "Using $SOURCEDIR"
+echo >&2 "Using $SOURCEDIR"
 
 # Create an temporary directory to work in.
 cd $WORKDIR
@@ -45,7 +46,7 @@ DIRNAME=`dirname $OLDFILE`
 NEWNAME="$BASENAME.zip"
 
 # Create a temporary folder for unRARed files
-echo "Extracting $OLDFILE"
+echo >&2 "Extracting $OLDFILE"
 mkdir "$BASENAME"
 7z x "$OLDFILE" -O"$BASENAME"
 cd "$BASENAME"
@@ -76,4 +77,4 @@ mv "$NEWNAME" "${DIRNAME}/${NEWNAME}"
 cd $WORKDIR
 rm -r $TEMPDIR
 
-echo "Conversion Done"
+echo >&2 "Conversion Done"
