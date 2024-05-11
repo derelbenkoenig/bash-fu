@@ -51,6 +51,7 @@ mkdir "$BASENAME"
 cd "$BASENAME"
 
 if [[ "$2" == "--subdir" ]] ; then
+    echo >&2 "descending 1 subdirectory"
     # assert only one subdirectory
     COUNTFILES=$(findDepth1 -print0 | tr -dc '\0'| wc -c)
     COUNTDIRS=$(findDepth1 -type d -print0 | tr -dc '\0'| wc -c)
