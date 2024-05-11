@@ -6,6 +6,8 @@ echo "Converting RAR to ZIP"
 
 set -ex
 
+IFS="␜"
+
 OLDFILE=$(realpath "$1")
 
 # Use RAM disk for temporary files.
@@ -48,23 +50,26 @@ mkdir "$BASENAME"
 7z x "$OLDFILE" -O"$BASENAME"
 cd "$BASENAME"
 
-# assert only one subdirectory
-COUNTFILES=$(findDepth1 -print0 | tr -dc '\0'| wc -c)
-COUNTDIRS=$(findDepth1 -type d -print0 | tr -dc '\0'| wc -c)
-if [[ "$COUNTFILES" != 1 || "$COUNTDIRS" != 1 ]] ; then
-   echo >&2 "not exactly 1 subdirectory found, exiting"
-   exit 1
-fi
-SUBDIR=$(findDepth1 -type d)
+if [[ "$2" == "--subdir" ]] ; then
+    # assert only one subdirectory
+    COUNTFILES=$(findDepth1 -print0 | tr -dc '\0'| wc -c)
+    COUNTDIRS=$(findDepth1 -type d -print0 | tr -dc '\0'| wc -c)
+    if [[ "$COUNTFILES" != 1 || "$COUNTDIRS" != 1 ]] ; then
+       echo >&2 "not exactly 1 subdirectory found, exiting"
+       exit 1
+    fi
+    SUBDIR=$(findDepth1 -type d)
 
-cd "$SUBDIR"
+    cd "$SUBDIR"
+fi
+
 # Zip the files with maximum compression
 7z a -tzip -mx=9 "$NEWNAME" *
 # Alternative. MUCH SLOWER, but better compression
 # 7z a -mm=Deflate -mfb=258 -mpass=15 -r "$NEWNAME" *
 
 # Move the new .zip to the directory containing the original ".rar" file
-mv "$NEWNAME" $DIRNAME/"$NEWNAME"
+mv "$NEWNAME" "${DIRNAME}/${NEWNAME}"
 
 # Delete the temporary directory
 cd $WORKDIR
