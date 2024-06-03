@@ -4,8 +4,8 @@
 # perform the inverse of that here since jq's @base64d only understands the default version of base64
 split(".")[0:2]
 | map(
-    sub("-"; "+")
-    | sub("_"; "/")
+    gsub("-"; "+")
+    | gsub("_"; "/")
     | @base64d
     | fromjson
 )
