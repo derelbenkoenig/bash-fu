@@ -1,0 +1,37 @@
+cmd + fn - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+cmd + fn - h : yabai -m window --focus west || yabai -m display --focus west
+cmd + fn - l : yabai -m window --focus east || yabai -m display --focus east
+cmd + fn - j : yabai -m window --focus south || yabai -m display --focus south
+cmd + fn - k : yabai -m window --focus north || yabai -m display --focus north
+
+cmd + shift - h : yabai -m window --warp west || yabai -m window --display west
+cmd + shift - l : yabai -m window --warp east || yabai -m window --display east
+cmd + shift - j : yabai -m window --warp south || yabai -m window --display south
+cmd + shift - k : yabai -m window --warp north || yabai -m window --display north
+
+# problem with numbered spaces...
+cmd + fn - 1 : yabai -m space --focus s_1
+cmd + fn - 2 : yabai -m space --focus s_2
+cmd + fn - 3 : yabai -m space --focus s_3
+cmd + fn - 4 : yabai -m space --focus s_4
+cmd + fn - 5 : yabai -m space --focus s_5
+cmd + fn - 6 : yabai -m space --focus s_6
+cmd + fn - 7 : yabai -m space --focus s_7
+cmd + fn - 8 : yabai -m space --focus s_8
+cmd + fn - 9 : yabai -m space --focus s_9
+cmd + fn - 0 : yabai -m space --focus s_10
+
+cmd + shift - 1 : yabai -m window --space s_1
+cmd + shift - 2 : yabai -m window --space s_2
+cmd + shift - 3 : yabai -m window --space s_3
+cmd + shift - 4 : yabai -m window --space s_4
+cmd + shift - 5 : yabai -m window --space s_5
+cmd + shift - 6 : yabai -m window --space s_6
+cmd + shift - 7 : yabai -m window --space s_7
+cmd + shift - 8 : yabai -m window --space s_8
+cmd + shift - 9 : yabai -m window --space s_9
+cmd + shift - 0 : yabai -m window --space s_10
+
+cmd + fn - n : yabai -m space --focus next || yabai -m space --focus first
+cmd + fn - p : yabai -m space --focus prev || yabai -m space --focus last
