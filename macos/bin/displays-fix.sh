@@ -14,25 +14,26 @@ do
     fi
 done
 
-    for i in {1..10}
-    do
-        yabai -m space ${i} --label "s_${i}"
-        sleep 0.5
-    done
+for i in {1..10}
+do
+    yabai -m space ${i} --label "s_${i}"
+    sleep 0.5
+done
 
-    oldIFS=$IFS
-    IFS=$'\n'
-    fixWindows=($(jq -n -r \
-        --slurpfile spaces <(yabai -m query --spaces ) \
-        --slurpfile windows <(yabai -m query --windows) \
-        '$windows[][]
-            | .["spaceLabel"] = (.space | $spaces[][. - 1].label)
-            | "yabai -m window \(.id) --space \(.spaceLabel)"'
-    ))
-    IFS=$oldIFS
-    for c in  "${fixWindows[@]}" ; do
-        echo "would run: '$c'"
-    done
+oldIFS=$IFS
+IFS=$'\n'
+fixWindows=($(jq -n -r \
+    --slurpfile spaces <(yabai -m query --spaces ) \
+    --slurpfile windows <(yabai -m query --windows) \
+    '$windows[][]
+        | .["spaceLabel"] = (.space | $spaces[][. - 1].label)
+        | "yabai -m window \(.id) --space \(.spaceLabel)"'
+))
+IFS=$oldIFS
+
+# for c in  "${fixWindows[@]}" ; do
+#     echo "would run: '$c'"
+# done
 
 function displayOfSpace {
     yabai -m query --spaces | jq ".[]|select(.label == \"$1\")|.display"
