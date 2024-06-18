@@ -32,7 +32,7 @@ fixWindows=($(jq -n -r \
 IFS=$oldIFS
 
 # for c in  "${fixWindows[@]}" ; do
-#     echo "would run: '$c'"
+#     echo >&2 "would run: '$c'"
 # done
 
 function displayOfSpace {
