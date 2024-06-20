@@ -35,3 +35,5 @@ cmd + shift - 0 : yabai -m window --space s_10
 
 cmd + fn - n : yabai -m space --focus next || yabai -m space --focus first
 cmd + fn - p : yabai -m space --focus prev || yabai -m space --focus last
+
+cmd + fn - d : /System/Applications/Launchpad.app/Contents/MacOS/Launchpad
