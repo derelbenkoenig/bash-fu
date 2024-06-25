@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 set -ex
 
 NUM_DISPLAYS=$(yabai -m query --displays | jq length)
@@ -14,12 +13,6 @@ do
     fi
 done
 
-for i in {1..10}
-do
-    yabai -m space ${i} --label "s_${i}"
-    sleep 0.5
-done
-
 oldIFS=$IFS
 IFS=$'\n'
 fixWindows=($(jq -n -r \
@@ -30,6 +23,14 @@ fixWindows=($(jq -n -r \
         | "yabai -m window \(.id) --space \(.spaceLabel)"'
 ))
 IFS=$oldIFS
+
+if [[ "$1" == "--relabel" ]]; then
+    for i in {1..10}
+    do
+        yabai -m space ${i} --label "s_${i}"
+        sleep 0.5
+    done
+fi
 
 # for c in  "${fixWindows[@]}" ; do
 #     echo >&2 "would run: '$c'"
