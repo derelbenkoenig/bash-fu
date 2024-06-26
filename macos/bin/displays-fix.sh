@@ -20,7 +20,7 @@ fixWindows=($(jq -n -r \
     --slurpfile windows <(yabai -m query --windows) \
     '$windows[][]
         | .["spaceLabel"] = (.space | $spaces[][. - 1].label)
-        | "yabai -m window \(.id) --space \(.spaceLabel)"'
+        | "yabai -m window \(.id) --space \(.spaceLabel) || echo >&2 \"problem with window \(.id)\""'
 ))
 IFS=$oldIFS
 
