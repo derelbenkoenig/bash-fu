@@ -13,23 +13,24 @@ do
     fi
 done
 
-oldIFS=$IFS
-IFS=$'\n'
-fixWindows=($(jq -n -r \
-    --slurpfile spaces <(yabai -m query --spaces ) \
-    --slurpfile windows <(yabai -m query --windows) \
-    '$windows[][]
-        | .["spaceLabel"] = (.space | $spaces[][. - 1].label)
-        | "yabai -m window \(.id) --space \(.spaceLabel) || echo >&2 \"problem with window \(.id)\""'
-))
-IFS=$oldIFS
-
 if [[ "$1" == "--relabel" ]]; then
     for i in {1..10}
     do
         yabai -m space ${i} --label "s_${i}"
         sleep 0.5
     done
+
+    oldIFS=$IFS
+    IFS=$'\n'
+    fixWindows=($(jq -n -r \
+        --slurpfile spaces <(yabai -m query --spaces ) \
+        --slurpfile windows <(yabai -m query --windows) \
+        '$windows[][]
+            | .["spaceLabel"] = (.space | $spaces[][. - 1].label)
+            | "yabai -m window \(.id) --space \(.spaceLabel) || echo >&2 \"problem with window \(.id)\""'
+    ))
+    IFS=$oldIFS
+
 fi
 
 # for c in  "${fixWindows[@]}" ; do
