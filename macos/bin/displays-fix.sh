@@ -14,11 +14,6 @@ do
 done
 
 if [[ "$1" == "--relabel" ]]; then
-    for i in {1..10}
-    do
-        yabai -m space ${i} --label "s_${i}"
-        sleep 0.5
-    done
 
     oldIFS=$IFS
     IFS=$'\n'
@@ -30,6 +25,12 @@ if [[ "$1" == "--relabel" ]]; then
             | "yabai -m window \(.id) --space \(.spaceLabel) || echo >&2 \"problem with window \(.id)\""'
     ))
     IFS=$oldIFS
+
+    for i in {1..10}
+    do
+        yabai -m space ${i} --label "s_${i}"
+        sleep 0.5
+    done
 
 fi
 
