@@ -1,0 +1,14 @@
+! swap the meanings of spacebar and w, for the purpose of playing fighting games.
+! spacebar = "up" or "jump", instead of WASD
+keycode 65 = w
+keycode 25 = space
+
+! 3-way swap the meanings of tab, esc and r
+! in game: esc is pause, tab is reset positions in training, r is nothing
+! I want: r is rest, tab is pause, esc is nothing
+! 9 is esc key
+! 27 is r key
+! 23 is tab key
+keycode   9 = r R r R
+keycode  23 = Escape NoSymbol Escape
+keycode  27 = Tab ISO_Left_Tab Tab ISO_Left_Tab
