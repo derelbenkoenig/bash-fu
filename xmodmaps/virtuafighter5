@@ -5,7 +5,7 @@ keycode 25 = space
 
 ! 3-way swap the meanings of tab, esc and r
 ! in game: esc is pause, tab is reset positions in training, r is nothing
-! I want: r is rest, tab is pause, esc is nothing
+! I want: r is reset, tab is pause, esc is nothing
 ! 9 is esc key
 ! 27 is r key
 ! 23 is tab key
