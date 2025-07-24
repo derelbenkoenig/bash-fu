@@ -1,3 +1,6 @@
 #!/bin/bash
 
-xclip -sel clip $@
+case "$XDG_SESSION_TYPE" in
+    x11|xorg) xclip -sel clip $@ ;;
+    wayland) wl-copy $@ ;;
+esac

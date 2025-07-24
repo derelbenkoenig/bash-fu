@@ -1,11 +1,6 @@
 alias l='ls -AlF'
 
 
-# take screenshot, save to predictable path
-function snip {
-	scrot $@ "/home/$(whoami)/Pictures/Screenshot-%Y-%m-%d-%H-%M-%S.png"
-}
-
 # open IDE from terminal, but detach from terminal (inherit env vars from shell... I think)
 alias idea='nohup idea >/dev/null & disown %%'
 alias clion='nohup clion >/dev/null & disown %%'

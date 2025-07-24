@@ -1,2 +1,8 @@
 #!/bin/bash
-scrot $@ '/home/rbenson/Pictures/Screenshot-%Y-%m-%d-%H-%M-%S.png'
+
+
+case "$XDG_SESSION_TYPE" in
+    x11|xorg) scrot $@ '$HOME/Pictures/Screenshot-%Y-%m-%d-%H-%M-%S.png' ;;
+    wayland) slurp | grim -g - - ;;
+esac
+
