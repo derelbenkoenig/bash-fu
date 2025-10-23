@@ -209,6 +209,34 @@ mode "resize" {
     bindsym q mode "default"
 }
 bindsym $mod+r mode "resize"
+
+mode "wasd" {
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    bindsym $mod+a focus left
+    bindsym $mod+s focus down
+    bindsym $mod+w focus up
+    bindsym $mod+d focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+a move left
+    bindsym $mod+Shift+s move down
+    bindsym $mod+Shift+w move up
+    bindsym $mod+Shift+d move right
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym q mode "default"
+}
+bindsym $mod+Shift+a mode "wasd"
+
 #
 # Utilities:
 #
@@ -240,6 +268,13 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+# don't idle while playing dolphin game
+# (it doesn't recognize gamecube controller input)
+for_window [class="dolphin-emu" window_role="renderer"] inhibit_idle focus
+for_window [title="Dolphin"] inhibit_idle focus
+
+for_window [title="Picture-in-Picture"] border none
 
 # start notification daemon
 exec mako
